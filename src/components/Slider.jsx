@@ -1,9 +1,14 @@
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from '@material-ui/icons';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styled from 'styled-components';
+import { SliderItems } from '../data';
 
 const Container = styled.div`
-    margin-top: 75px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
 `;
 
 const Arrow = styled.div`
@@ -15,19 +20,28 @@ const Arrow = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0;
+    top: 175px;
     bottom: 0;
     left: ${props => props.className === "left" && "10px"};
     right: ${props => props.className === "right" && "10px"};
     margin: auto;
+    cursor: pointer;
     opacity: 0.5;
+    z-index: 2;
 `;
 
 const Wrapper = styled.div`
+    height: 100%;
+    display: flex;
+    transform: translateX(${props => props.slideIndex * -100}vw);
 `
 
 const Slide = styled.div`
-    width: 50vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #${props => props.bg};
 `;
 
 const ImgContainer = styled.div`
@@ -36,53 +50,72 @@ const ImgContainer = styled.div`
     margin-left: 150px;
 `;
 
-const Image = styled.img`
-    height: 90%;
+const Image = styled.img`  
+    height: 65%;
+    margin-top: 125px;
 `;
 
 const InfoContainer = styled.div`
+    display: block;
+    align-content: center;
     flex: 1;
-    margin-left: 55%;
+    top: 0;
+    bottom: 25px;
+    height: 55px;
+    margin: auto;
 `;
 
-
-const Title = styled.h1``
+const Title = styled.h1`
+`;
 const Description = styled.p`
     margin: 50px 0;
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 3px;
-`
+    color: #ffff
+`;
 const Button = styled.button`
     padding: 10px;
     font-size: 20px;
-    background-color: transparent;
-`
-class Slider extends Component {
-    render() {
-        return (
-            <Container>
-                <Arrow className="left">
-                    <ArrowBackIosOutlined />
-                </Arrow>
-                <Wrapper>
-                    <Slide>
+    background-color: #E8AEB7;
+    border: none;
+    font-size: 25px;
+`;
+
+const Slider = () => {
+    const [slideIndex, setSlideIndex] = useState(0);
+    const handleClick = (direction) => {
+        if (direction ==="left") {
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+        }
+    }
+
+    return (
+        <Container>
+            <Arrow className="left" onClick={() => handleClick("left")}>
+                <ArrowBackIosOutlined />
+            </Arrow>
+            <Wrapper slideIndex={slideIndex}>
+                {SliderItems.map(item => (
+                    <Slide bg={item.backgroundColor}>
                         <ImgContainer>
-                            <Image src='https://i.pinimg.com/564x/b0/85/88/b08588382d58f9fdc23c5db34dea2f33.jpg' />
+                            <Image src={item.img} />
                         </ImgContainer>
                         <InfoContainer>
-                            <Title>Grand Opening</Title>
-                            <Description>Vegan cupcakes that will keep you wanting more.</Description>
-                            <Button>Buy Cupcakes</Button>
+                            <Title>{item.title}</Title>
+                            <Description>{item.description}</Description>
+                            <Button>Shop Cupcakes</Button>
                         </InfoContainer>
                     </Slide>
-                </Wrapper>
-                <Arrow className="right">
-                    <ArrowForwardIosOutlined />
-                </Arrow>
-            </Container>
-        );
-    }
-}
+                ))};
+            </Wrapper>
+            <Arrow className="right" onClick={() => handleClick("right")}>
+                <ArrowForwardIosOutlined />
+            </Arrow>
+        </Container>
+    );
+};
 
 export default Slider;

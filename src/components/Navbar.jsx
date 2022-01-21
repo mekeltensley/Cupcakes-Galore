@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-`
+`;
 const Left = styled.div`
     flex: 1;
     display: flex;
@@ -25,17 +25,16 @@ const Language = styled.span`
 `;
 
 const SearchContainer = styled.div`
-    border: 0.5px solid lightgrey;
+    border: 0.5px solid lightgray;
     display: flex;
     align-items: center;
     margin-left: 25px;
     padding: 5px;
-    
 `;
 
 const Input = styled.input`
     border: none;
-`
+`;
 const Center = styled.div`
     flex: 1;
     text-align: center;
@@ -43,7 +42,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
     font-weight: bold;
-`
+`;
 const Right = styled.div`
     flex: 1;
     display: flex;
@@ -55,7 +54,7 @@ const MenuItem = styled.div`
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
-`
+`;
 
 class Navbar extends Component {
     render() {
@@ -66,7 +65,7 @@ class Navbar extends Component {
                         <Language>EN</Language>
                         <SearchContainer>
                             <Input />
-                            <Search style={{ color:"#FE938C", fontSize: "40px" }}/>
+                            <Search style={{ color:"#E8AEB7", fontSize: "40px" }}/>
                         </SearchContainer>
                     </Left>
                     <Center><Logo className="logo">Cupcakes Galore</Logo></Center>
