@@ -1,11 +1,13 @@
 import Home from "./components/Home";
 import React, { Component } from "react";
+import ProductList from "./components/ProductList";
+import Product from "../components/Product";
 
 
 class App extends Component {
   render() {
     return (
-      <Home/>
+      <Product />
     );
   }
 }
