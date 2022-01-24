@@ -10,13 +10,21 @@ const Left = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20;
+    padding: 20px;
+    margin-left: 2%;
 `;
 
-const Logo = styled.h1``;
+const Logo = styled.h3`
+    margin-top: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 
-const SocialContainer = styled.div``;
-const SocialIcon = styled.h1`
+const SocialContainer = styled.div`
+    display: flex;
+`;
+const SocialIcon = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -28,17 +36,21 @@ const SocialIcon = styled.h1`
     margin-right: 20px;
 `;
 
-
 const Center = styled.div`
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
 `;
 
 const Title = styled.h3`
     margin-bottom: 30px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+`;
 
-
-`
 const List = styled.ul`
     margin: 0;
     padding: 0;
@@ -56,6 +68,7 @@ const ListItem = styled.li`
 const Right = styled.div`
     flex: 1;
     padding: 20px;
+    margin-left: 50%;
 `;
 
 
@@ -63,12 +76,18 @@ const ContactItem = styled.div`
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-
-    
 `;
 
 const Payment = styled.img`
-    width: 100%;
+    width: 25%;
+`;
+
+const Bottom = styled.div`
+    margin-right: 50%;
+    flex: 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 `;
 
 
@@ -77,18 +96,6 @@ class Footer extends Component {
         return (
             <Container>
                 <Left>
-                    <Logo>Cupcakes Galore</Logo>
-                </Left>
-                <SocialContainer>
-                    <SocialIcon color="A67F8E">
-                        <Instagram/>
-                    </SocialIcon>
-                    <SocialIcon color="A67F8E">
-                        <Pinterest/>
-                    </SocialIcon>
-                </SocialContainer>
-                <Center>
-
                     <Title>Services</Title>
                     <List>
                         <ListItem>Shipping</ListItem>
@@ -98,7 +105,19 @@ class Footer extends Component {
                         <ListItem>Terms and Conditions</ListItem>
                         <ListItem>Privacy Policy</ListItem>
                     </List>
+                </Left>
+                <Title>Follow Us on Social Media</Title>
+                <Center>
+                    <SocialContainer>
+                            <SocialIcon color="A67F8E">
+                                <Instagram/>
+                            </SocialIcon>
+                            <SocialIcon color="A67F8E">
+                                <Pinterest/>
+                            </SocialIcon>
+                        </SocialContainer> 
                 </Center>
+                <Logo>Cupcakes Galore</Logo> 
                 <Right>
                     <Title>Customer Support</Title>
                     <ContactItem>
@@ -112,7 +131,7 @@ class Footer extends Component {
                     </ContactItem>
                     <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
                 </Right>
-            </ Container>
+            </Container>
         )
     }
 };
