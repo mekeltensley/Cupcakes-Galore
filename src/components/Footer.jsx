@@ -28,7 +28,7 @@ const SocialIcon = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #${props=>props.color};
+    background-color: #${props => props.color};
     color:#9b5f68;
     display: flex;
     align-items: center;
@@ -46,9 +46,6 @@ const Center = styled.div`
 
 const Title = styled.h3`
     margin-bottom: 30px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
 `;
 
 const List = styled.ul`
@@ -56,7 +53,7 @@ const List = styled.ul`
     padding: 0;
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 `
 
 const ListItem = styled.li`
@@ -79,15 +76,7 @@ const ContactItem = styled.div`
 `;
 
 const Payment = styled.img`
-    width: 25%;
-`;
-
-const Bottom = styled.div`
-    margin-right: 50%;
-    flex: 1;
-    display: flex;
-    align-content: center;
-    justify-content: center;
+    width: 45%;
 `;
 
 
@@ -98,36 +87,24 @@ class Footer extends Component {
                 <Left>
                     <Title>Services</Title>
                     <List>
-                        <ListItem>Shipping</ListItem>
-                        <ListItem>Track My Order</ListItem>
                         <ListItem>My Account</ListItem>
+                        <ListItem>Track My Order</ListItem>
                         <ListItem>FAQ</ListItem>
+                        <ListItem>Shipping</ListItem>
                         <ListItem>Terms and Conditions</ListItem>
                         <ListItem>Privacy Policy</ListItem>
                     </List>
                 </Left>
-                <Title>Follow Us on Social Media</Title>
-                <Center>
-                    <SocialContainer>
-                            <SocialIcon color="A67F8E">
-                                <Instagram/>
-                            </SocialIcon>
-                            <SocialIcon color="A67F8E">
-                                <Pinterest/>
-                            </SocialIcon>
-                        </SocialContainer> 
-                </Center>
-                <Logo>Cupcakes Galore</Logo> 
                 <Right>
                     <Title>Customer Support</Title>
                     <ContactItem>
-                        <Favorite style={{marginRight: "10px"}}/> Made with love in Atlanta, GA
+                        <Favorite style={{ marginRight: "10px" }} /> Made with love in Atlanta, GA
                     </ContactItem>
                     <ContactItem>
-                        <Phone style={{marginRight: "10px"}}/> 404-111-6622
+                        <Phone style={{ marginRight: "10px" }} /> 404-111-6622
                     </ContactItem>
                     <ContactItem>
-                        <MailOutline style={{marginRight: "10px"}}/> customersupport@cupcakesgalore.com
+                        <MailOutline style={{ marginRight: "10px" }} /> customersupport@cupcakesgalore.com
                     </ContactItem>
                     <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
                 </Right>
@@ -137,3 +114,16 @@ class Footer extends Component {
 };
 
 export default Footer;
+
+{/* <Title>Follow Us on Social Media</Title> */ }
+
+// <Center>
+//     <SocialContainer>
+//         <SocialIcon color="A67F8E">
+//             <Instagram />
+//         </SocialIcon>
+//         <SocialIcon color="A67F8E">
+//             <Pinterest />
+//         </SocialIcon>
+//     </SocialContainer>
+// </Center>
