@@ -1,4 +1,4 @@
-# `Cupcakees Galore`
+# `Cupcakes Galore`
 
 ## An E-commerce web application created for selling vegan cupcakes 
 
