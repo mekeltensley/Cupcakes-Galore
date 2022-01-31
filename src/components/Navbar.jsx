@@ -2,6 +2,7 @@ import { Badge } from '@material-ui/core';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import './Navbar.css';
 
 const Container = styled.div`
@@ -25,7 +26,9 @@ const Language = styled.span`
 `;
 
 const SearchContainer = styled.div`
-    border: 0.5px solid lightgray;
+    border: 0.5px solid #2C1A1D;
+    width: 250px;
+    height: 35px;
     display: flex;
     align-items: center;
     margin-left: 25px;
@@ -51,10 +54,18 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-    font-size: 14px;
+    text-decoration: none;
+    font-size: 15px;
     cursor: pointer;
-    margin-left: 25px;
+    margin-right: 75px;
+    width: 55%;
+    padding: 15px 20px;
+    background-color: #E8AEB7;
+    border: none;
+    text-align: center;
+    border-radius: 10px;
 `;
+
 
 class Navbar extends Component {
     render() {
@@ -65,18 +76,22 @@ class Navbar extends Component {
                         <Language>EN</Language>
                         <SearchContainer>
                             <Input />
-                            <Search style={{ color:"#E8AEB7", fontSize: "40px" }}/>
+                            <Search style={{ color:"#E8AEB7", fontSize: "40px", marginLeft: 50 }}/>
                         </SearchContainer>
                     </Left>
                     <Center><Logo className="logo">Cupcakes Galore</Logo></Center>
                     <Right>
+                        <Link to="/register" style={{ textDecoration:"none", color:"#2C1A1D" }}>
                         <MenuItem>REGISTER</MenuItem>
+                        </Link>
+                        <Link to="/login" style={{ textDecoration:"none", color:"#2C1A1D"}}>
                         <MenuItem>SIGN IN</MenuItem>
-                        <MenuItem>
-                            <Badge badgeContent={4} color="primary">
+                        </Link>
+                        <Link to="/cart" >
+                            <Badge  badgeContent={2} style={{ color:"#2C1A1D", fontSize: 55 }}>
                                 <ShoppingCartOutlined />
                             </Badge>
-                        </MenuItem>
+                        </Link>
                     </Right>
                 </Wrapper>
             </Container>

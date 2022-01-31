@@ -4,17 +4,22 @@ import styled from 'styled-components';
 import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import StripeCheckout from 'react-stripe-checkout';
+
+const KEY = process.env.REACT_STRIPE_KEY;
 
 const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
     padding: 20px;
+    margin-top: 120px;
 `;
 
 const Title = styled.h1`
     font-weight: 300;
     text-align: center;
+    color: #2C1A1D;
 `;
 
 const Top = styled.div`
@@ -25,21 +30,31 @@ const Top = styled.div`
 `;
 
 const TopButton = styled.button`
-   padding: 10px;
-   font-weight: 600;
-   cursor: pointer;
-   border: ${props => props.type === 'filled' && 'none'};
-   background-color: ${props => props.type === 'filled' ? '#E8AEB7' : 'transparent'};
-   color: ${props => props.type === 'filled' && '#f8f4f4'};
+    width: 75%;
+    margin-top: 10px;
+    margin-left: 55px;
+    padding: 10px;
+    background-color: #E8AEB7;
+    font-size: 20px;
+    border: none;
+    color: #2C1A1D;
+    border-radius: 10px;
 `;
+
+
 
 const TopTexts = styled.div`
 `;
 
 const TopText = styled.span`
-    text-decoration: underline;
     cursor: pointer;
-    text-align: center;
+    width: 15%;
+    margin-top: 10px;
+    margin-left: 55px;
+    padding: 10px;
+    background-color: #E8AEB7;
+    font-size: 20px;
+    color: #2C1A1D;
 `;
 
 const Bottom = styled.div`
@@ -63,6 +78,8 @@ const ProductDetail = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
+    margin-left: 10%;
 `;
 
 const Details = styled.div`
@@ -82,16 +99,19 @@ const Image = styled.img`
 
 const PriceDetail = styled.div`
     flex: 1;
+    margin-left: 28%;
+    margin-top: 125px;
 `;
 
 const ProductAmountContainer = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    margin-left: 5px;
 `;
 
-const ProductAmount = styled.div`
-    font-size: 24px;
+const ProductQuantity = styled.div`
+    font-size: 30px;
     margin: 5px;
 `;
 
@@ -109,10 +129,12 @@ const Summary = styled.div`
     flex: 1;
     border: 0.5px solid lightgray;
     border-radius: 10px;
-    padding: 20px;
-    
+    padding: 35px;
+    margin-right: 7%;
 `;
-const SummaryTitle = styled.h1``;
+const SummaryTitle = styled.h1`
+    text-align: center;
+`;
 
 const SummaryItem = styled.div`
     margin: 30px 0px;
@@ -127,13 +149,18 @@ const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
 
 const Button = styled.button`
-    width: 100%;
+    width: 75%;
+    margin-left: 55px;
     padding: 10px;
-    background-color: ;
+    background-color: #E8AEB7;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
 `;
 
 
 class Cart extends Component {
+    // const cart = useSelector(state=> state.cart)
     render() {
         return (
             <Container>
@@ -141,15 +168,25 @@ class Cart extends Component {
                 <Navbar />
                 <Wrapper>
                     <Title>Your Cart</Title>
-                    <Top>
-                        <TopButton>Continue Shopping</TopButton>
-                        <TopTexts>
-                            <TopText>Cart(2)</TopText>
-                        </TopTexts>
-                        <TopButton type='filled'>Checkout</TopButton>
-                    </Top>
                     <Bottom>
                         <Info>
+                            <Product>
+                                <ProductDetail>
+                                    <Image src="https://i.pinimg.com/564x/f9/6d/4c/f96d4c93f9d988451ce0c5c403c14566.jpg" />
+                                    <Details>
+                                        <ProductName><b>Cupcake Choice: </b>Red Velvet</ProductName>
+                                    </Details>
+                                </ProductDetail>
+                                <PriceDetail>
+                                    <ProductAmountContainer>
+                                        <Add />
+                                        <ProductQuantity>2</ProductQuantity>
+                                        <Remove />
+                                    </ProductAmountContainer>
+                                    <ProductPrice>$9.50</ProductPrice>
+                                </PriceDetail>
+                            </Product>
+                            <Hr />
                             <Product>
                                 <ProductDetail>
                                     <Image src="https://i.pinimg.com/236x/91/72/e5/9172e5af77192d570e9b3a4a224e8ed4.jpg" />
@@ -160,7 +197,7 @@ class Cart extends Component {
                                 <PriceDetail>
                                     <ProductAmountContainer>
                                         <Add />
-                                        <ProductAmountContainer>2</ProductAmountContainer>
+                                        <ProductQuantity>2</ProductQuantity>
                                         <Remove />
                                     </ProductAmountContainer>
                                     <ProductPrice>$9.50</ProductPrice>
@@ -171,7 +208,7 @@ class Cart extends Component {
                             <SummaryTitle>Order Summary</SummaryTitle>
                             <SummaryItem>
                                 <SummaryItemText>Subtotal</SummaryItemText>
-                                <SummaryItemPrice>$9.50</SummaryItemPrice>
+                                <SummaryItemPrice>$19.00</SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem>
                                 <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -179,9 +216,10 @@ class Cart extends Component {
                             </SummaryItem>
                             <SummaryItem type="total">
                                 <SummaryItemText>Total</SummaryItemText>
-                                <SummaryItemPrice>$9.50</SummaryItemPrice>
+                                <SummaryItemPrice>$23.50</SummaryItemPrice>
                             </SummaryItem>
                             <Button>Checkout Now</Button>
+                            <TopButton>Continue Shopping</TopButton>
                         </Summary>
                     </Bottom>
                 </Wrapper>

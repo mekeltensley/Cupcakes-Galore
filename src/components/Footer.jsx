@@ -15,15 +15,12 @@ const Left = styled.div`
 `;
 
 const Logo = styled.h3`
-    margin-top: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 `;
 
 const SocialContainer = styled.div`
     display: flex;
 `;
+
 const SocialIcon = styled.div`
     width: 40px;
     height: 40px;
@@ -38,9 +35,6 @@ const SocialIcon = styled.div`
 
 const Center = styled.div`
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
 `;
 
@@ -53,19 +47,18 @@ const List = styled.ul`
     padding: 0;
     list-style: none;
     display: flex;
-    flex-direction: column;
-`
+    flex-direction: wrap;
+`;
 
 const ListItem = styled.li`
-    width: 50%; 
-    margin-bottom: 10px;
+    width: 20%; 
+    margin-bottom: 30px;
 `;
 
 
 const Right = styled.div`
     flex: 1;
-    padding: 20px;
-    margin-left: 50%;
+    padding: 20px;  
 `;
 
 
@@ -76,7 +69,7 @@ const ContactItem = styled.div`
 `;
 
 const Payment = styled.img`
-    width: 45%;
+    width: 50%;
 `;
 
 
@@ -95,6 +88,16 @@ class Footer extends Component {
                         <ListItem>Privacy Policy</ListItem>
                     </List>
                 </Left>
+                <Center>
+                    <SocialContainer>
+                        <SocialIcon color="A67F8E">
+                            <Instagram />
+                        </SocialIcon>
+                        <SocialIcon color="A67F8E">
+                            <Pinterest />
+                        </SocialIcon>
+                    </SocialContainer>
+                </Center>
                 <Right>
                     <Title>Customer Support</Title>
                     <ContactItem>
@@ -115,15 +118,3 @@ class Footer extends Component {
 
 export default Footer;
 
-{/* <Title>Follow Us on Social Media</Title> */ }
-
-// <Center>
-//     <SocialContainer>
-//         <SocialIcon color="A67F8E">
-//             <Instagram />
-//         </SocialIcon>
-//         <SocialIcon color="A67F8E">
-//             <Pinterest />
-//         </SocialIcon>
-//     </SocialContainer>
-// </Center>

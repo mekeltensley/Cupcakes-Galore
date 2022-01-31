@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Announcement from './Announcement';
+import Navbar from './Navbar';
+import Footer from './Footer';
+
 
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: #C89FA3;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,10 +29,16 @@ const Form = styled.form`
 `;
 
 
-const Title = styled.h1`
+const Heading = styled.h1`
     font-size: 25px;
     font-weight: 500;
 `;
+
+const Title = styled.h3`
+    font-size: 25px;
+    font-weight: 500;
+`;
+
 
 
 const Input = styled.input`
@@ -76,6 +87,7 @@ class Register extends Component {
                         <Button>Create Account</Button>
                     </Form>
                 </Wrapper>
+                
             </Container>
         )
     }
