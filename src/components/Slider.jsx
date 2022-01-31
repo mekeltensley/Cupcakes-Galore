@@ -66,13 +66,14 @@ const InfoContainer = styled.div`
 `;
 
 const Title = styled.h1`
+    color: #6C534E;
 `;
 const Description = styled.p`
     margin: 50px 0;
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 3px;
-    color: #ffff
+    color: #A67F8E;
 `;
 const Button = styled.button`
     padding: 10px;
@@ -80,6 +81,8 @@ const Button = styled.button`
     background-color: #E8AEB7;
     border: none;
     font-size: 25px;
+    color: #2C1A1D;
+    border-radius: 10px;
 `;
 
 const Slider = () => {
