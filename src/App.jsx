@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Home from "./components/Home";
 import Classic from "./components/Classic";
 import Specialty from "./components/Specialty";
-import Product from "./components/Product";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Cart from "./components/Cart";
